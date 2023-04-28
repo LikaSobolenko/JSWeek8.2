@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Определите, что год находится в интервале от 2000 до 2100
+        const year = '2140';
+        let regExp = /^[2][0]\d{1}\d{1}|[2][1][0][0]$/g
+        console.log(regExp.test(year));
+
+        //Удалите одной регуляркой все слова из предложения, содержащие две одинаковые, следующие друг за другом буквы.
+        let str1 = 'ыыы в ааа пп р ооо';
+        let result1 = str1.replace(
+            /[а-яА-ЯёЁa-zA-Z]*[а-яА-ЯёЁa-zA-Z]*([а-яА-ЯёЁa-zA-Z])\1[а-яА-ЯёЁa-zA-Z]*[а-яА-ЯёЁa-zA-Z]*/gi,
+            "");
+        console.log(result1);
+
+        //Следующие решения верны ТОЛЬКО для латиницы
+
+        //Удалите одной регуляркой все повторяющиеся слова из строки
+        const str2 = "ааву ааа ааа ап";
+        let result2 = str2.replace(/([а-яёА-ЯЁa-zA-Z]+)(\s+\1)/g, "$1 ");
+        console.log(result2);
+
+        //Решите предыдущую задачу с учётом того, что слово может повторяться много раз. 
+        let str3 = 'ааву ааа ааа ааа ап ааа ааа ааа ап';
+        var result3 = str3.replace(/([а-яёА-ЯЁa-zA-Z]+)(\s+\1)+(?:\s|$)/g, "$1 ");
+        console.log(result3);
+    </script>
+
+</body>
+
+</html>
